@@ -78,6 +78,7 @@ o.start(0)
 g.gain.exponentialRampToValueAtTime(0.000000000001, context.currentTime + x)
 counter += 1;
 document.getElementById("p1").innerHTML = "Clicks: " + counter;
+};
 if (counter >= 50) {
     document.getElementById("marq").innerHTML = <h1>I see u have 50 clicks</h1>
     document.getElementById("unlock").innerText = "Unlocked!"
@@ -86,7 +87,6 @@ if (counter <= 50) {
     document.getElementById("marq").innerHTML = <h1>Clicker Clicker Clicker Clicker Clicker Clicker Clicker Clicker Clicker</h1>
     document.getElementById("unlock").innerText = "Unlocks at 50 Clicks"
 }
-};
 </script>
 
 </body></html>
