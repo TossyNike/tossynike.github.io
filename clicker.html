@@ -51,8 +51,10 @@ background-position: 0 0, 0 0, 11px 19px, 11px 19px, 0 0, 11px 19px;
     font-size: 25px;
     }
     #person{
+    visibility: hidden;
     height: 200px;
     background-color: gray;
+    color: white;
     }
     marquee{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -65,7 +67,6 @@ let sec2 = 1;
 let counter = 0;
 let x = 2;
 var context = new AudioContext()
-
 document.getElementById('button1').onclick = () => {
 var context = new AudioContext()
 var o = context.createOscillator()
@@ -78,14 +79,15 @@ o.start(0)
 g.gain.exponentialRampToValueAtTime(0.000000000001, context.currentTime + x)
 counter += 1;
 document.getElementById("p1").innerHTML = "Clicks: " + counter;
-};
-if (counter >= 50) {
-    document.getElementById("marq").innerHTML = <h1>I see u have 50 clicks</h1>
-    document.getElementById("unlock").innerText = "Unlocked!"
+if (counter>=50) {
+    document.getElementById("person").style.visibility = 'visible'
 }
-if (counter <= 50) {
-    document.getElementById("marq").innerHTML = <h1>Clicker Clicker Clicker Clicker Clicker Clicker Clicker Clicker Clicker</h1>
-    document.getElementById("unlock").innerText = "Unlocks at 50 Clicks"
+if (counter<=50) {
+    document.getElementById("person").style.visibility = 'hidden'
+}
+};
+function myfunction() {
+    
 }
 </script>
 
