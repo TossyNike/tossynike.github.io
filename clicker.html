@@ -70,6 +70,7 @@ document.getElementById('button1').onclick = () => {
 var context = new AudioContext()
 var o = context.createOscillator()
 var  g = context.createGain()
+o.stop()
 o.type = "sine"
 o.connect(g)
 g.connect(context.destination)
