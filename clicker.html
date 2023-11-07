@@ -3,7 +3,7 @@
     <title>New webpage</title>
 </head>
 <body>
-<marquee behavior="scroll" direction="left" scrollamount="15"><h1>Clicker Clicker Clicker Clicker Clicker Clicker Clicker Clicker Clicker</h1></marquee>
+<marquee behavior="scroll" direction="left" scrollamount="15" id="marq"><h1>Clicker Clicker Clicker Clicker Clicker Clicker Clicker Clicker Clicker</h1></marquee>
 <div class="a">
 <div class="box">
     <div id="score"><p id="p1">Clicks: 0</p></div>
@@ -14,7 +14,7 @@
 <div id="shop">
     <button id="person">
         <h3>People</h3>
-        <p>Unlocks at 50 Clicks</p>
+        <p id = "unlock">Unlocks at 50 Clicks</p>
     </button>
 </div>
 <style>
@@ -70,7 +70,7 @@ document.getElementById('button1').onclick = () => {
 var context = new AudioContext()
 var o = context.createOscillator()
 var  g = context.createGain()
-o.stop()
+context.currentTime.valueOf(0)
 o.type = "sine"
 o.connect(g)
 g.connect(context.destination)
@@ -78,6 +78,14 @@ o.start(0)
 g.gain.exponentialRampToValueAtTime(0.000000000001, context.currentTime + x)
 counter += 1;
 document.getElementById("p1").innerHTML = "Clicks: " + counter;
+if (counter >= 50) {
+    document.getElementById("marq").innerHTML = <h1>I see u have 50 clicks</h1>
+    document.getElementById("unlock").innerText = "Unlocked!"
+}
+if (counter <= 50) {
+    document.getElementById("marq").innerHTML = <h1>Clicker Clicker Clicker Clicker Clicker Clicker Clicker Clicker Clicker</h1>
+    document.getElementById("unlock").innerText = "Unlocks at 50 Clicks"
+}
 };
 </script>
 
